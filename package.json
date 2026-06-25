@@ -1,0 +1,17 @@
+{
+  "name": "tap",
+  "private": true,
+  "version": "1.0.0",
+  "description": "The project registry for the Valley Christian Startup Incubator.",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

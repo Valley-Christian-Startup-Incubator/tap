@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Compost Tracker",
+    "slug": "compost-tracker",
+    "tagline": "Gamified composting for school cafeterias",
+    "repo": "jane-2024/compost-tracker",
+    "status": "active",
+    "stack": ["Next.js", "Supabase", "Tailwind"],
+    "owners": ["@jane-2024"],
+    "handoffDocs": "README.md",
+    "addedAt": "2026-06-24"
+  }
+]

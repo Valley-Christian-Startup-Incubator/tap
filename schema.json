@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Valley-Christian-Startup-Incubator/tap/schema.json",
+  "title": "SUI project registry",
+  "description": "The list of every project registered with the Valley Christian Startup Incubator.",
+  "type": "array",
+  "items": { "$ref": "#/$defs/project" },
+  "$defs": {
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "slug", "tagline", "repo", "status", "owners", "addedAt"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable project name, e.g. \"Compost Tracker\"."
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "URL-safe id, lowercase with dashes. Must be unique across the registry."
+        },
+        "tagline": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "One short sentence describing what the project does."
+        },
+        "repo": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$",
+          "description": "GitHub repo as owner/name. Usually YOUR account (you keep owning your code). Only point this at Valley-Christian-Startup-Incubator/... after you transfer the project to the org at hand-off."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "seeking-steward", "archived"],
+          "description": "active = you still own/run it; seeking-steward = looking for someone to take it over; archived = no longer maintained."
+        },
+        "stack": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Optional list of key technologies, e.g. [\"Next.js\", \"Supabase\"]."
+        },
+        "owners": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^@?[A-Za-z0-9-]+$"
+          },
+          "description": "GitHub handles of the people who own/maintain the project."
+        },
+        "handoffDocs": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional path or URL to the maintain/deploy/learn docs, e.g. \"README.md\"."
+        },
+        "addedAt": {
+          "type": "string",
+          "format": "date",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+          "description": "Date the project was registered, YYYY-MM-DD."
+        }
+      }
+    }
+  }
+}
