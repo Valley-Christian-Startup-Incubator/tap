@@ -28,11 +28,11 @@ change the values. Make sure:
 - your `slug` is unique (not already in the file),
 - the JSON is still valid (commas between entries, no trailing comma after the last one).
 
-Check it before committing:
+Use Node.js 24.22.1 from `.node-version`, then check it before committing:
 
 ```sh
-bun install
-bun run validate
+npm ci --ignore-scripts
+npm run validate
 ```
 
 ## 4. Commit and push

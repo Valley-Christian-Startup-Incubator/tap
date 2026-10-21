@@ -59,12 +59,21 @@ The full contract is in [`schema.json`](./schema.json).
 
 ## Validating locally
 
+Use Node.js 24.22.1, as pinned in `.node-version`. The supported Node.js
+release lines require at least 22.23.4, 24.22.1, or 26.12.1 to include the
+eMudhra certificate trust update.
+
 Before you open a PR you can check your entry yourself:
 
 ```sh
-bun install
-bun run validate
+npm ci --ignore-scripts
+npm run validate
 ```
 
 This is the same check that runs on your pull request. It confirms `registry.json`
 is valid JSON, matches the schema, and has no duplicate slugs.
+
+Run `npm run check:tls` to check Node.js fetch and HTTPS certificate validation.
+Both reject the eMudhra test chains, and `https://example.com` must return 200.
+DNS failures and timeouts are inconclusive and make the check fail. CI runs this
+check before installing dependencies.
