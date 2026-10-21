@@ -5,10 +5,11 @@
   "description": "The project registry for the Valley Christian Startup Incubator.",
   "type": "module",
   "scripts": {
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "check:tls": "node scripts/check-tls.mjs"
   },
   "engines": {
-    "node": ">=20"
+    "node": "^22.23.4 || ^24.22.1 || ^26.12.1"
   },
   "devDependencies": {
     "ajv": "^8.17.1",

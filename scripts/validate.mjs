@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Validates registry.json against schema.json and checks that every slug is
- * unique. Run with `bun run validate` (or `node scripts/validate.mjs`).
+ * unique. Run with `npm run validate` (or `node scripts/validate.mjs`).
  * Exits non-zero with a readable message if anything is wrong — this is what
  * the PR check runs.
  */
